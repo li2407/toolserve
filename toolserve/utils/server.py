@@ -80,7 +80,7 @@ def soft_delete_record(table, record_id):
     """
     if record_id:
         sql = f"UPDATE {table} SET status = 0 WHERE id = ?"
-        execute_sql(sql, (record_id,))
+        execute_sql(sql, [record_id['id']])
 
 def server(func):
     """
